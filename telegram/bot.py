@@ -50,7 +50,11 @@ class Bot:
         returns:
             An array of update objects
         """
-        pass
+        # Defining the url to update
+        url = f'{self.base_url}getUpdates'
+
+        response = requests.get(url)
+        return response.json()['result']
 
     def sendPhoto(self,chat_id:int,photo:str):
         """

@@ -7,4 +7,4 @@ TOKEN = os.environ['TOKEN']
 bot = Bot(TOKEN)
 # Print the bot info
 
-print(bot.sendMessage('1258594598', 'salom'))
+print(bot.getUpdates())
