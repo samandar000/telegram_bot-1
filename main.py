@@ -7,8 +7,4 @@ TOKEN = os.environ['TOKEN']
 bot = Bot(TOKEN)
 # Print the bot info
 
-
-# Send a message to the bot
-chat_id = ''
-msg = bot.sendMessage(chat_id,"Hello World!!!")
-print(msg.text)
+print(bot.getMe())
