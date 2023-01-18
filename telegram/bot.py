@@ -37,12 +37,10 @@ class Bot:
             'text':text
         }
         # Sending the message
-        response = requests.post(url,data=data)
+        response = requests.get(url,params=data)
         # Converting the response to json
-        response = response.json()
-        # Converting the response to a message object
-        message = Message(response['result'])
-        return message
+        
+        return response.status_code
 
     def getUpdates(self,offset:int=None):
         """
