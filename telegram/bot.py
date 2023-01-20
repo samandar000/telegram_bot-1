@@ -54,7 +54,7 @@ class Bot:
         url = f'{self.base_url}getUpdates'
 
         response = requests.get(url)
-        return response.json()['result']
+        return response.json()['result'][-1]
 
     def sendPhoto(self,chat_id:int,photo:str):
         """
@@ -65,8 +65,13 @@ class Bot:
         returns:
             A message object
         """
-        pass
-
+        url = self.base_url + 'sendPhoto'
+        payload = {
+            'chat_id': chat_id,
+            'photo': photo
+        }
+        response = requests.get(url, json=payload)
+        return response.status_code
 
     def sendSticker(self,chat_id:int,sticker:str):
         """
@@ -77,7 +82,13 @@ class Bot:
         returns:
             A message object
         """
-        pass
+        url = self.base_url + 'sendSticker'
+        payload = {
+            'chat_id': chat_id,
+            'sticker': sticker
+        }
+        response = requests.get(url, json=payload)
+        return response.status_code
 
     def sendDocument(self,chat_id:int,document:str):
         """
@@ -88,7 +99,13 @@ class Bot:
         returns:
             A message object
         """
-        pass
+        url = self.base_url + 'sendDocument'
+        payload = {
+            'chat_id':chat_id,
+            'document':document
+        }
+        response = requests.get(url,json=payload)
+        return response.status_code
 
     def sendVideo(self,chat_id:int,video:str):
         """
@@ -99,7 +116,13 @@ class Bot:
         returns:
             A message object
         """
-        pass
+        url = self.base_url + 'sendVideo'
+        payload = {
+            'chat_id':chat_id,
+            'video':video
+        }
+        response = requests.get(url,json=payload)
+        return response.status_code
 
     def sendLocation(self,chat_id:int,latitude:float,longitude:float):
         """
@@ -111,7 +134,14 @@ class Bot:
         returns:
             A message object
         """
-        pass
+        url = self.base_url + 'sendLocation'
+        payload = {
+            'chat_id':chat_id,
+            'latitude':latitude,
+            'longitude':longitude
+        }
+        response = requests.get(url,json=payload)
+        return response.status_code
 
     def sendContact(self,chat_id:int,phone_number:str,first_name:str):
         """
@@ -123,9 +153,15 @@ class Bot:
         returns:
             A message object
         """
-        pass
+        url = self.base_url + 'sendContact'
+        payload = {
+            'chat_id':chat_id,
+            'first_name':first_name,
+            'phone_number':phone_number
+        }
+        response = requests.get(url,json=payload)
+        return response.status_code
 
     
       
-
 
